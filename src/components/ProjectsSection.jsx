@@ -17,8 +17,8 @@ const projects = [
         title: 'My Portfolio (This website!)',
         description: 'A unique digital experience exploring skeuomorphic design in a modern web context. Features custom physics-based animations for the folder interaction.',
         techStack: ['React', 'Tailwind v4', 'Framer Motion', 'Vite'],
-        githubUrl: '#',
-        liveUrl: '#',
+        githubUrl: 'https://github.com/mikephaul0917/portfolio-website.git',
+        liveUrl: 'https://portfolio-website-abc.vercel.app/',
         icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
         images: ['projects/myportfolio.png', 'projects/myportfolio2.png', 'projects/myportfolio3.png', 'projects/myportfolio4.png', 'projects/myportfolio5.png'], // Add more images here to enable the carousel
     },
