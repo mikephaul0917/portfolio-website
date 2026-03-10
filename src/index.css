@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;500;600;700&family=Architects+Daughter&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-manila: #F3D5B5;
+  --color-manila-dark: #e0be9a;
+  --color-manila-light: #f8e6d0;
+  --color-charcoal: #2d2d2d;
+  --color-charcoal-light: #3a3a3a;
+  --color-tab-teal: #14b8a6;
+  --color-tab-blue: #3b82f6;
+  --color-tab-red: #ef4444;
+  --color-tab-yellow: #eab308;
+  --color-stamp-red: #c0392b;
+  --font-handwritten: 'Permanent Marker', cursive;
+  --font-sketch: 'Architects Daughter', cursive;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Graph paper pattern for inner sheets */
+.graph-paper {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(180, 180, 220, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 180, 220, 0.2) 1px, transparent 1px);
+  background-size: 32px 32px;
+  /* was 20px — larger grid feels more open */
+}
+
+/* Red margin line removed per user request */
+
+/* Custom scrollbar for the sheet */
+.sheet-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sheet-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+.sheet-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+.sheet-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Stamp effect */
+.stamp {
+  width: 130px;
+  height: 130px;
+  border: 5px solid var(--color-stamp-red);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-15deg);
+  font-family: var(--font-handwritten);
+  color: var(--color-stamp-red);
+  position: relative;
+  opacity: 0.85;
+}
+
+.stamp::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 3px dashed var(--color-stamp-red);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+/* Tape effect for polaroid */
+.tape-top {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 70px;
+  height: 22px;
+  background: rgba(255, 255, 220, 0.55);
+  z-index: 3;
+  border-radius: 1px;
+}
+
+.tape-bottom {
+  position: absolute;
+  bottom: -8px;
+  right: 15%;
+  transform: rotate(2deg);
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 255, 220, 0.5);
+  z-index: 3;
+  border-radius: 1px;
+}
+
+/* Pill tags */
+.pill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #f4f4f4;
+  color: #444;
+  margin: 3px;
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.15s;
+}
+
+.pill:hover {
+  background-color: #e8e8e8;
+}
+
+/* Notebook horizontal rule */
+.notebook-hr {
+  border: none;
+  border-top: 2px solid #333;
+  margin: 16px 0;
+  opacity: 0.6;
+}
+
+/* Social icon card */
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Binding holes */
+.binding-hole {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(160, 130, 100, 0.4);
+  background: rgba(45, 45, 45, 0.15);
+}
+
+/* ═══ FOLDER SLIT ═══
+   A horizontal "slit" at the top edge of the folder.
+   This is the visual gap where the paper emerges from,
+   like the opening of a real manila folder pocket. */
+.folder-slit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* No pseudo-elements for shadows */
