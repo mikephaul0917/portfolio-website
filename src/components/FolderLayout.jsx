@@ -149,7 +149,7 @@ export default function FolderLayout() {
             <div
                 ref={containerRef}
                 className="relative -mt-[1px] w-full"
-                style={{ height: 'clamp(480px, 85vh, 1000px)' }}
+                style={{ height: 'clamp(300px, 80svh, 1000px)' }}
             >
 
                 <div
