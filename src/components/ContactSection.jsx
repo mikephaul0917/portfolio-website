@@ -8,40 +8,70 @@ export default function ContactSection() {
     const [message, setMessage] = useState('');
     const [sending, setSending] = useState(false);
     const [status, setStatus] = useState(null); // 'success' | 'error'
+    const [submittedMessage, setSubmittedMessage] = useState(null);
     const formRef = useRef();
 
     const [copied, setCopied] = useState(false);
     const myEmail = 'mikephaulbanderadao5@gmail.com';
+
+    // This function mimics your Python send_email_notif function!
+    const sendEmailNotif = (receiver, subject, messageBody) => {
+        const SERVICE_ID = 'service_4420flg';
+        const TEMPLATE_ID = 'template_5jkhgxi';
+        const PUBLIC_KEY = 'dQLnNtM4OyF-5Z-im';
+
+        // These keys map to parameters in your EmailJS template
+        const templateParams = {
+            to_email: receiver,
+            subject: subject,
+            message: messageBody,
+            from_name: name,
+            from_email: email,
+        };
+
+        return emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setSending(true);
         setStatus(null);
 
-        // Placeholders for User to fill
-        const SERVICE_ID = 'service_4420flg';
-        const TEMPLATE_ID = 'template_5jkhgxi';
-        const PUBLIC_KEY = 'dQLnNtM4OyF-5Z-im';
+        // Using a JavaScript template string exactly like your Python f""" """ string!
+        const customMessage = `
+Dear Mike,
 
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            to_email: myEmail,
-            message: message,
-        };
+You have received a new message from a portfolio visitor.
 
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+Name: ${name}
+Email: ${email}
+        
+Their Message:
+"${message}"
+        
+Thank You!
+This is an auto-generated email from your portfolio website.`;
+
+        sendEmailNotif(
+            myEmail,
+            `New Portfolio Contact from ${name}`,
+            customMessage
+        )
             .then((result) => {
                 console.log(result.text);
+                setSubmittedMessage(message);
                 setStatus('success');
                 setName('');
                 setEmail('');
                 setMessage('');
-                setTimeout(() => setStatus(null), 5000);
+                setTimeout(() => {
+                    setStatus(null);
+                    setSubmittedMessage(null);
+                }, 8000);
             }, (error) => {
                 console.log(error.text);
                 setStatus('error');
-                setTimeout(() => setStatus(null), 5000);
+                setTimeout(() => setStatus(null), 8000);
             })
             .finally(() => {
                 setSending(false);
@@ -209,7 +239,11 @@ export default function ContactSection() {
                             </div>
                             {status === 'success' && (
                                 <div style={{ padding: '1rem', background: '#d1fae5', color: '#065f46', borderRadius: '0.75rem', fontSize: '0.9rem', textAlign: 'center' }}>
-                                    Message sent successfully! ✨
+                                    <p style={{ fontWeight: 700, margin: '0 0 0.75rem 0' }}>Message sent successfully! ✨</p>
+                                    <div style={{ background: 'rgba(255,255,255,0.6)', padding: '0.75rem', borderRadius: '0.5rem', textAlign: 'left', fontStyle: 'italic', color: '#064e3b', wordBreak: 'break-word', whiteSpace: 'pre-wrap' }}>
+                                        "{submittedMessage}"
+                                    </div>
+                                    <p style={{ fontSize: '0.75rem', marginTop: '0.75rem', opacity: 0.8 }}>I'll get back to you as soon as possible.</p>
                                 </div>
                             )}
                             {status === 'error' && (
