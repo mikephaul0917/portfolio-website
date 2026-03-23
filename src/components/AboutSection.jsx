@@ -12,16 +12,28 @@ export default function AboutSection() {
                         <div className="h-1 w-16 sm:w-20 bg-teal-500/30 rounded-full mt-1 mb-1 mx-auto sm:mx-0"></div>
                         <p className="text-gray-500 font-medium text-sm sm:text-base md:text-lg mt-1">Computer Science Student – Seeking Internship</p>
                     </div>
-                    <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-2xl rotate-3 overflow-hidden border-4 border-white shadow-xl flex-shrink-0 bg-gray-100 transition-transform hover:rotate-0 duration-300">
+                    <div className="group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-2xl rotate-3 overflow-hidden border-4 border-white shadow-xl flex-shrink-0 bg-gray-100 transition-transform hover:rotate-0 duration-300 cursor-pointer">
                         <img
                             src="/profile/profile.jpg"
                             alt="Mike Phaul - Profile Photo"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             onError={(e) => {
                                 e.target.style.display = 'none';
                                 e.target.parentElement.innerHTML = '<div style="width:100%;height:100%;background:linear-gradient(135deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:white;font-size:1.875rem;font-weight:700">MP</div>';
                             }}
                         />
+                        {/* POV Camera Cover Animation - 3D Reaching Hand */}
+                        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden rounded-2xl">
+                            {/* The realistic hand image */}
+                            <div className="absolute inset-x-0 -bottom-10 flex items-center justify-center">
+                                <img 
+                                    src="/profile/hand.png" 
+                                    alt="Hand" 
+                                    style={{ transitionTimingFunction: 'cubic-bezier(0.5, 0, 1, 1)' }}
+                                    className="w-[80%] origin-bottom opacity-0 group-hover:opacity-100 scale-[0.4] translate-y-10 group-hover:translate-y-[-10%] group-hover:scale-[4] transition-all duration-[600ms] filter group-hover:blur-[3px] drop-shadow-2xl mix-blend-multiply" 
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

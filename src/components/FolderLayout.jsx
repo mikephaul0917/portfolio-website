@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, useAnimation, AnimatePresence, useMotionValue, animate } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
 import TabNav from './TabNav';
@@ -113,7 +113,12 @@ export default function FolderLayout() {
         animatingRef.current = true;
 
         try {
-            if (activeTab === tabId) {
+            if (tabId === null) {
+                if (activeTab) {
+                    await exitAnimation();
+                    setActiveTab(null);
+                }
+            } else if (activeTab === tabId) {
                 // Same tab → EXIT animation (close)
                 await exitAnimation();
                 setActiveTab(null);
@@ -136,6 +141,58 @@ export default function FolderLayout() {
         }
     }, [activeTab, enterAnimation, exitAnimation]);
 
+    useEffect(() => {
+        const tabOrder = [null, 'about', 'skills', 'projects', 'contact'];
+        let isThrottled = false;
+        let startY = 0;
+
+        const executeScrollAction = (deltaY, target) => {
+            if (isThrottled || Math.abs(deltaY) < 40) return;
+
+            const sheet = target.closest('.sheet-scroll');
+            if (sheet) {
+                const { scrollTop, scrollHeight, clientHeight } = sheet;
+                const isAtTop = scrollTop <= 0;
+                const isAtBottom = Math.abs(scrollHeight - clientHeight - scrollTop) <= 2;
+                
+                if (deltaY > 0 && !isAtBottom) return; 
+                if (deltaY < 0 && !isAtTop) return;
+            }
+
+            isThrottled = true;
+            setTimeout(() => { isThrottled = false; }, 800);
+
+            const currentIndex = tabOrder.indexOf(activeTab);
+
+            if (deltaY > 0) {
+                if (currentIndex < tabOrder.length - 1) {
+                    handleTabChange(tabOrder[currentIndex + 1]);
+                } else {
+                    handleTabChange(null);
+                }
+            } else if (deltaY < 0 && currentIndex > 0) {
+                handleTabChange(tabOrder[currentIndex - 1]);
+            }
+        };
+
+        const handleWheel = (e) => executeScrollAction(e.deltaY, e.target);
+        const handleTouchStart = (e) => { startY = e.touches[0].clientY; };
+        const handleTouchEnd = (e) => {
+            const deltaY = startY - e.changedTouches[0].clientY;
+            executeScrollAction(deltaY, e.target);
+        };
+
+        window.addEventListener('wheel', handleWheel);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
+        };
+    }, [activeTab, handleTabChange]);
+
     const ActiveSection = activeTab ? sections[activeTab] : null;
 
     // Dynamic z-index: paper is behind cover (z-10) or above it (z-25)
@@ -149,7 +206,7 @@ export default function FolderLayout() {
             <div
                 ref={containerRef}
                 className="relative -mt-[1px] w-full"
-                style={{ height: 'clamp(300px, 80svh, 1000px)' }}
+                style={{ height: 'clamp(500px, 90svh, 1200px)' }}
             >
 
                 <div
@@ -259,10 +316,9 @@ export default function FolderLayout() {
                 </div>
 
             </div>
-            <br />
 
             {/* Footer */}
-            <footer className="text-center mt-1 text-xs sm:text-sm text-gray-400">
+            <footer className="text-center text-xs sm:text-sm text-gray-400">
                 Mike Phaul 2026 –{' '}
                 <a href="https://www.linkedin.com/in/mikephaul" className="text-blue-400 hover:text-blue-300 transition-colors">LinkedIn</a>
                 {' – '}
