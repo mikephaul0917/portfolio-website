@@ -1,16 +1,15 @@
-# React + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built to showcase projects, skills, and experience.
 
-Currently, two official plugins are available:
+## Tools and Frameworks Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was built using the following tools, libraries, and frameworks:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **[React](https://react.dev/)** (v19) - A modern JavaScript library for building user interfaces.
+- **[Vite](https://vitejs.dev/)** - A fast, modern frontend build tool for a smooth and efficient development experience.
+- **[Tailwind CSS](https://tailwindcss.com/)** (v4) - A utility-first CSS framework used for rapid, responsive, and custom UI styling.
+- **[Framer Motion](https://www.framer.com/motion/)** - A production-ready motion library for React, used to create dynamic animations and transitions.
+- **[React Icons](https://react-icons.github.io/react-icons/)** - A comprehensive library providing popular icons as standard React components.
+- **[EmailJS](https://www.emailjs.com/)** - Used to enable email sending functionality directly from the client-side without a backend.
+- **[ESLint](https://eslint.org/)** - A linting utility for identifying and reporting on patterns in JavaScript to maintain code quality.
