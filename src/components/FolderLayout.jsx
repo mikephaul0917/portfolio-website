@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { motion, useAnimation, AnimatePresence, useMotionValue, animate } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
 import TabNav from './TabNav';
@@ -141,57 +141,7 @@ export default function FolderLayout() {
         }
     }, [activeTab, enterAnimation, exitAnimation]);
 
-    useEffect(() => {
-        const tabOrder = [null, 'about', 'skills', 'projects', 'contact'];
-        let isThrottled = false;
-        let startY = 0;
 
-        const executeScrollAction = (deltaY, target) => {
-            if (isThrottled || Math.abs(deltaY) < 40) return;
-
-            const sheet = target.closest('.sheet-scroll');
-            if (sheet) {
-                const { scrollTop, scrollHeight, clientHeight } = sheet;
-                const isAtTop = scrollTop <= 0;
-                const isAtBottom = Math.abs(scrollHeight - clientHeight - scrollTop) <= 2;
-                
-                if (deltaY > 0 && !isAtBottom) return; 
-                if (deltaY < 0 && !isAtTop) return;
-            }
-
-            isThrottled = true;
-            setTimeout(() => { isThrottled = false; }, 800);
-
-            const currentIndex = tabOrder.indexOf(activeTab);
-
-            if (deltaY > 0) {
-                if (currentIndex < tabOrder.length - 1) {
-                    handleTabChange(tabOrder[currentIndex + 1]);
-                } else {
-                    handleTabChange(null);
-                }
-            } else if (deltaY < 0 && currentIndex > 0) {
-                handleTabChange(tabOrder[currentIndex - 1]);
-            }
-        };
-
-        const handleWheel = (e) => executeScrollAction(e.deltaY, e.target);
-        const handleTouchStart = (e) => { startY = e.touches[0].clientY; };
-        const handleTouchEnd = (e) => {
-            const deltaY = startY - e.changedTouches[0].clientY;
-            executeScrollAction(deltaY, e.target);
-        };
-
-        window.addEventListener('wheel', handleWheel);
-        window.addEventListener('touchstart', handleTouchStart);
-        window.addEventListener('touchend', handleTouchEnd);
-
-        return () => {
-            window.removeEventListener('wheel', handleWheel);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchend', handleTouchEnd);
-        };
-    }, [activeTab, handleTabChange]);
 
     const ActiveSection = activeTab ? sections[activeTab] : null;
 

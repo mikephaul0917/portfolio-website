@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
     {
-        title: 'E-Clearance System',
+        title: 'ClearEd - E-Clearance System',
         description: 'The E-Clearance System is a web-based Software-as-a-Service (SaaS) application developed to automate and manage student and employee clearance processes for academic institutions. ',
         techStack: ['React', 'Tailwind v4', 'Framer Motion', 'Vite', 'Typescript', 'node.js', 'mongoDB'],
-        githubUrl: '#',
-        liveUrl: '#',
+        githubUrl: 'https://github.com/mikephaul0917/ClearEd.git',
+        liveUrl: 'https://clear-ed-8u77.vercel.app/',
         icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
-        images: ['projects/ClearEd1.png', 'projects/ClearEd2.png', 'projects/ClearEd3.png', 'projects/ClearEd4.png', 'projects/ClearEd5.png', 'projects/ClearEd6.png', 'projects/ClearEd7.png', 'projects/ClearEd8.png', 'projects/ClearEd9.png'], // Add more images here to enable the carousel
+        images: ['projects/ClearEd1.png', 'projects/ClearEd2.png', 'projects/ClearEd3.png', 'projects/ClearEd4.png', 'projects/ClearEd5.png', 'projects/ClearEd6.png', 'projects/ClearEd7.png', 'projects/ClearEd8.png'], // Add more images here to enable the carousel
     },
     {
         title: 'My Portfolio (This website!)',
@@ -23,6 +23,24 @@ const projects = [
         images: ['projects/myportfolio.png', 'projects/myportfolio2.png', 'projects/myportfolio3.png', 'projects/myportfolio4.png', 'projects/myportfolio5.png'], // Add more images here to enable the carousel
     },
     {
+        title: 'SenseMed AI Chatbot',
+        description: 'Agentic Clinical Intelligence Tracker',
+        techStack: ['Python', 'Flask', 'SQLite', 'gemini ai', 'OpenRouter', 'MCP tools'],
+        githubUrl: 'https://github.com/mikephaul0917/SenseMed-AI.git',
+        liveUrl: '#',
+        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
+        images: ['projects/sm1.png', 'projects/sm2.png', 'projects/sm3.png', 'projects/sm4.png'], // Add more images here to enable the carousel
+    },
+    {
+        title: 'Hotel Kiosk System',
+        description: 'A self-service machine or digital platform that allows guests to check in, book rooms, make payments, and check out without needing staff assistance.',
+        techStack: ['Python', 'Flask'],
+        githubUrl: '#',
+        liveUrl: '#',
+        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
+        images: ['projects/k1.png', 'projects/k2.png', 'projects/k3.png', 'projects/k4.png', 'projects/k5.png', 'projects/k6.png', 'projects/k7.png', 'projects/k8.png'], // Add more images here to enable the carousel
+    },
+    {
         title: 'Student Grade Management System',
         description: 'Student Grade Management System – A web-based application built using C#, ASP.NET, and SQL Server that helps manage student grades efficiently. The system allows instructors to input, update, and compute student grades while storing all records securely in a database. It provides an organized way to track academic performance and generate grade reports.',
         techStack: ['C#', 'ASP.NET', 'SQL Server'],
@@ -30,6 +48,15 @@ const projects = [
         liveUrl: '#',
         icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
         images: ['projects/sg1.png', 'projects/sg2.png', 'projects/sg3.png', 'projects/sg4.png', 'projects/sg5.png', 'projects/sg6.png', 'projects/sg7.png', 'projects/sg8.png'], // Add more images here to enable the carousel
+    },
+    {
+        title: 'Weather Analysis Dashboard',
+        description: 'A data visualization dashboard built using Power BI and a Weather REST API that analyzes real-time and historical weather data. The dashboard presents insights such as temperature trends, precipitation patterns, and weather conditions through interactive charts and reports, helping users easily understand and explore weather patterns. 🌦️📊',
+        techStack: ['Power BI', 'Weather REST API'],
+        githubUrl: '#',
+        liveUrl: '#',
+        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
+        images: ['projects/powerbi.png'], // Add more images here to enable the carousel
     },
     {
         title: 'Kentouka Restaurant Website',
@@ -40,15 +67,6 @@ const projects = [
         icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
         images: ['projects/food1.png', 'projects/food2.png', 'projects/food3.png', 'projects/food4.png', 'projects/food5.png'], // Add more images here to enable the carousel
     },
-    {
-        title: 'Weather Analysis Dashboard',
-        description: 'A data visualization dashboard built using Power BI and a Weather REST API that analyzes real-time and historical weather data. The dashboard presents insights such as temperature trends, precipitation patterns, and weather conditions through interactive charts and reports, helping users easily understand and explore weather patterns. 🌦️📊',
-        techStack: ['Power BI', 'Weather REST API'],
-        githubUrl: '#',
-        liveUrl: '#',
-        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
-        images: ['projects/powerbi.png'], // Add more images here to enable the carousel
-    }
 
 ];
 
@@ -176,8 +194,12 @@ export default function ProjectsSection() {
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                                 <h3 className="font-[family-name:var(--font-handwritten)]" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.85rem)', color: '#1f2937' }}>{project.title}</h3>
                                 <div style={{ display: 'flex', gap: '0.85rem' }}>
-                                    <a href={project.githubUrl} className="hover:scale-110 transition-transform text-red-500"><FaGithub size={20} /></a>
-                                    <a href={project.liveUrl} className="hover:scale-110 transition-transform text-red-500"><FaExternalLinkAlt size={18} /></a>
+                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-tooltip hover:scale-110 transition-transform text-red-500" data-tooltip="View on GitHub"><FaGithub size={20} /></a>
+                                    {project.liveUrl && project.liveUrl !== '#' ? (
+                                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-tooltip hover:scale-110 transition-transform text-red-500" data-tooltip="View Live Demo"><FaExternalLinkAlt size={18} /></a>
+                                    ) : (
+                                        <span className="project-tooltip transition-transform text-gray-300 cursor-not-allowed" data-tooltip="Live demo not available"><FaExternalLinkAlt size={18} /></span>
+                                    )}
                                 </div>
                             </div>
 
