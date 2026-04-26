@@ -33,9 +33,9 @@ export default function AboutSection() {
                         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden rounded-2xl">
                             {/* The realistic hand image */}
                             <div className="absolute inset-x-0 -bottom-10 flex items-center justify-center">
-                                <img 
-                                    src="/profile/hand.png" 
-                                    alt="Hand" 
+                                <img
+                                    src="/profile/hand.png"
+                                    alt="Hand"
                                     style={{ transitionTimingFunction: 'cubic-bezier(0.5, 0, 1, 1)' }}
                                     className={`w-[80%] origin-bottom group-hover:opacity-100 group-hover:translate-y-[-10%] group-hover:scale-[4] transition-all duration-[600ms] filter group-hover:blur-[3px] drop-shadow-2xl mix-blend-multiply ${photoTouched ? 'opacity-100 translate-y-[-10%] scale-[4] blur-[3px]' : 'opacity-0 scale-[0.4] translate-y-10'}`}
                                 />
@@ -65,7 +65,7 @@ export default function AboutSection() {
                             I'm a <span className="text-teal-700 font-semibold">Computer Science student</span> passionate about building things for the web. I love creating interfaces that feel intuitive, look great, and actually solve real problems.
                         </p>
                         <p>
-                            I am currently completing my degree at Sacred Heart College Inc. I'm actively looking for an internship where I can contribute, learn fast, and grow alongside a strong team.
+                            I am currently completing my degree at Sacred Heart College of Lucena City Inc. I'm actively looking for an internship where I can contribute, learn fast, and grow alongside a strong team.
                         </p>
                         <p>
                             I'm a self-driven learner — always exploring new tools, keeping up with the latest in tech, and working on side projects to sharpen my skills.
