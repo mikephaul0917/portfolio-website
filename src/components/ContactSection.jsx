@@ -183,7 +183,7 @@ This is an auto-generated email from your portfolio website.`;
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                             <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', background: 'rgba(249, 251, 204, 0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                <span style={{ fontSize: '1.2rem' }}>✉️</span>
+                                <FaEnvelope style={{ color: '#eab308' }} />
                             </div>
                             <h3 className="font-[family-name:var(--font-sketch)]" style={{ fontSize: '1.25rem', color: '#1f2937' }}>Or send me a message</h3>
                         </div>
@@ -270,7 +270,7 @@ This is an auto-generated email from your portfolio website.`;
                                     transition: 'background 0.2s, transform 0.2s'
                                 }}
                             >
-                                {sending ? 'Sending...' : 'Send Message 🚀'}
+                                {sending ? 'Sending...' : 'Send Message'}
                             </button>
                         </div>
                     </div>
