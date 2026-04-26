@@ -59,6 +59,14 @@ const certifications = [
         logo: 'cisco.png',
     },
     {
+        title: 'OpeniT Codefest 2025',
+        category: 'Web/App Development',
+        skills: 'project pitching, API integration, and innovative problem-solving',
+        date: 'Nov 2025',
+        image: '/CERTIFICATIONS/openit_certificate/hackthon.jpg',
+        logo: 'Open_iT.png',
+    },
+    {
         title: 'Generative AI Fundamentals',
         category: 'Generative AI',
         skills: 'Generative artificial intelligence (AI)',
@@ -82,14 +90,7 @@ const certifications = [
         image: '/CERTIFICATIONS/codecred-certifications/HTML Fundamentals.png',
         logo: 'CodeCred',
     },
-    {
-        title: 'OpeniT Codefest 2025',
-        category: 'Web/App Development',
-        skills: 'project pitching, API integration, and innovative problem-solving',
-        date: 'Nov 2025',
-        image: '/CERTIFICATIONS/openit_certificate/hackthon.jpg',
-        logo: 'Open_iT.png',
-    }
+
 ];
 
 export default function SkillsSection() {
