@@ -15,7 +15,7 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen w-full flex flex-col items-center justify-center pt-4 sm:pt-8 md:pt-12 px-4 sm:px-8 md:px-12 pb-0 overflow-x-hidden bg-charcoal">
+        <div className="min-h-screen w-full flex flex-col items-center justify-start lg:justify-center pt-4 sm:pt-6 md:pt-6 lg:pt-12 px-4 sm:px-8 md:px-12 pb-0 overflow-x-hidden bg-charcoal">
             <FolderLayout />
         </div>
     );

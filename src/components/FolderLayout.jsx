@@ -155,8 +155,7 @@ export default function FolderLayout() {
             {/* ═══ FOLDER CONTAINER ═══ */}
             <div
                 ref={containerRef}
-                className="relative -mt-[1px] w-full"
-                style={{ height: 'clamp(500px, 90svh, 1200px)' }}
+                className="relative -mt-[1px] w-full folder-container"
             >
 
                 <div

@@ -19,6 +19,14 @@ const skillCategories = [
 
 const certifications = [
     {
+        title: 'Introduction to Cybersecurity',
+        category: 'Cybersecurity',
+        skills: 'Cyber Best Practices, Cybersecurity, Network Vulnerabilities, Privacy and Data Confidentiality, Threat Detection and Response, Risk Management, Vulnerability Assessment, Security Audit and Compliance',
+        date: 'Dec 2025',
+        image: '/CERTIFICATIONS/Intro-to-Cybersecurity/introduction-to-cybersecurity.png',
+        logo: 'cisco.png',
+    },
+    {
         title: 'JavaScript Essential 1',
         category: 'Web Development',
         skills: 'Data Types, Debugging, User Interaction, Conditional Execution, Control Flow',

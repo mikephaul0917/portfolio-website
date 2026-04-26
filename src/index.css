@@ -236,6 +236,18 @@ body {
   opacity: 1;
 }
 
+/* ═══ FOLDER CONTAINER HEIGHT ═══ */
+.folder-container {
+  height: clamp(500px, 90svh, 1200px);
+}
+
+/* Tablet: reduce folder height to avoid the stretched look */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .folder-container {
+    height: clamp(480px, 70svh, 750px);
+  }
+}
+
 /* ═══════════════════════════════════════════════
    MOBILE LAYOUT
    ═══════════════════════════════════════════════ */
@@ -248,7 +260,8 @@ html {
 .mobile-layout {
   width: 100%;
   min-height: 100vh;
-  padding: 1rem 1rem 6rem 1rem; /* bottom padding for floating nav */
+  padding: 1rem 1rem 6rem 1rem;
+  /* bottom padding for floating nav */
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
