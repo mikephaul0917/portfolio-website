@@ -56,7 +56,7 @@ export default function MobileLayout() {
                     <div className="mobile-hero-tape" />
                     <div className="mobile-hero-polaroid">
                         <img
-                            src="/profile/profile.JPG"
+                            src="/profile/profile.jpg"
                             alt="Mike Phaul"
                             className="mobile-hero-img"
                             onError={(e) => {
