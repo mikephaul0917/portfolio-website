@@ -21,7 +21,7 @@ export default function AboutSection() {
                         onClick={() => setPhotoTouched((prev) => !prev)}
                     >
                         <img
-                            src="/profile/profile.JPG"
+                            src="/profile/profile.jpg"
                             alt="Mike Phaul - Profile Photo"
                             className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${photoTouched ? 'scale-110' : ''}`}
                             onError={(e) => {
