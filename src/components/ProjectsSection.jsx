@@ -32,6 +32,15 @@ const projects = [
         images: ['projects/sm1.png', 'projects/sm2.png', 'projects/sm3.png', 'projects/sm4.png'], // Add more images here to enable the carousel
     },
     {
+        title: 'PUNLA - Organic Coconut Supplier',
+        description: 'PUNLA Website – A responsive e-commerce and showcase website built using HTML, CSS, and JavaScript. The site highlights sustainably sourced, organic coconut products, featuring an interactive product catalog, company mission, sourcing locations, and wholesale contact information. It focuses on user-friendly navigation and a fresh, modern layout to enhance the sustainable B2B and consumer experience. 🌴',
+        techStack: ['HTML', 'JavaScript', 'CSS'],
+        githubUrl: '#',
+        liveUrl: 'https://mikephaul0917.github.io/PUNLA---Coconut-Supplier/index.html',
+        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
+        images: ['projects/punla1.png', 'projects/punla2.png', 'projects/punla3.png', 'projects/punla4.png', 'projects/punla5.png', 'projects/punla6.png'], // Add more images here to enable the carousel
+    },
+    {
         title: 'Hotel Kiosk System',
         description: 'A self-service machine or digital platform that allows guests to check in, book rooms, make payments, and check out without needing staff assistance.',
         techStack: ['Python', 'Flask'],

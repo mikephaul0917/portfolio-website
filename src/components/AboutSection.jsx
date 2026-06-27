@@ -21,7 +21,7 @@ export default function AboutSection() {
                         onClick={() => setPhotoTouched((prev) => !prev)}
                     >
                         <img
-                            src="/profile/profile.jpg"
+                            src="/profile/profile.JPG"
                             alt="Mike Phaul - Profile Photo"
                             className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${photoTouched ? 'scale-110' : ''}`}
                             onError={(e) => {
@@ -29,17 +29,24 @@ export default function AboutSection() {
                                 e.target.parentElement.innerHTML = '<div style="width:100%;height:100%;background:linear-gradient(135deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:white;font-size:1.875rem;font-weight:700">MP</div>';
                             }}
                         />
-                        {/* POV Camera Cover Animation - 3D Reaching Hand */}
+                        {/* POV Camera Cover Animation - palm presses flat against the lens */}
                         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden rounded-2xl">
-                            {/* The realistic hand image */}
-                            <div className="absolute inset-x-0 -bottom-10 flex items-center justify-center">
-                                <img
-                                    src="/profile/hand.png"
-                                    alt="Hand"
-                                    style={{ transitionTimingFunction: 'cubic-bezier(0.5, 0, 1, 1)' }}
-                                    className={`w-[80%] origin-bottom group-hover:opacity-100 group-hover:translate-y-[-10%] group-hover:scale-[4] transition-all duration-[600ms] filter group-hover:blur-[3px] drop-shadow-2xl mix-blend-multiply ${photoTouched ? 'opacity-100 translate-y-[-10%] scale-[4] blur-[3px]' : 'opacity-0 scale-[0.4] translate-y-10'}`}
-                                />
-                            </div>
+                            {/* Light dims as the palm blocks the lens */}
+                            <div
+                                className={`absolute inset-0 bg-black transition-opacity duration-500 ease-out ${photoTouched ? 'opacity-35' : 'opacity-0'} group-hover:opacity-35`}
+                            ></div>
+
+                            {/* The hand sits in the exact same frame as the profile photo at rest (just invisible),
+                                so on hover it only fades in / grows in place - no sliding from outside the box */}
+                            <img
+                                src="/profile/hand.png"
+                                alt=""
+                                style={{ transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)' }}
+                                className={`absolute inset-0 w-full h-full object-cover origin-center transition-all duration-[650ms] filter drop-shadow-2xl mix-blend-multiply ${photoTouched
+                                        ? 'opacity-100 scale-125 blur-[1px] brightness-90'
+                                        : 'opacity-0 scale-100 blur-0 brightness-100'
+                                    } group-hover:opacity-100 group-hover:scale-125 group-hover:blur-[1px] group-hover:brightness-90`}
+                            />
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ export default function CoverFlap() {
                     }}
                 >
                     <img
-                        src="/profile/profile.jpg"
+                        src="/profile/profile.JPG"
                         alt="Mike Phaul - Profile Photo"
                         className="polaroid-img"
                         style={{
