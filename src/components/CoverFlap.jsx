@@ -116,8 +116,9 @@ export default function CoverFlap() {
                         <div>Student</div>
                     </span>
                     <span style={{ fontSize: 'clamp(0.9rem, 4.5vw, 1.6rem)', fontWeight: 900, lineHeight: 1.05, margin: '2px 0', whiteSpace: 'nowrap' }}>
-                        <div>INTERN</div>
-                        <div>READY</div>
+                        <div>OPEN</div>
+                        <div>TO</div>
+                        <div>WORK</div>
                     </span>
                     <span style={{ fontSize: 'clamp(0.4rem, 2.2vw, 0.65rem)', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                         <div>Class of 2026</div>
