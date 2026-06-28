@@ -74,7 +74,7 @@ export default function MobileLayout() {
                         Mike Phaul
                     </h1>
                     <p style={{ color: '#6b7280', fontSize: '0.95rem', marginTop: '0.5rem' }}>
-                        Computer Science Student — Seeking Internship
+                        Computer Science Graduate — Seeking Entry-Level Opportunities
                     </p>
                 </div>
 

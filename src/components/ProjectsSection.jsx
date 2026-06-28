@@ -35,10 +35,19 @@ const projects = [
         title: 'PUNLA - Organic Coconut Supplier',
         description: 'PUNLA Website – A responsive e-commerce and showcase website built using HTML, CSS, and JavaScript. The site highlights sustainably sourced, organic coconut products, featuring an interactive product catalog, company mission, sourcing locations, and wholesale contact information. It focuses on user-friendly navigation and a fresh, modern layout to enhance the sustainable B2B and consumer experience. 🌴',
         techStack: ['HTML', 'JavaScript', 'CSS'],
-        githubUrl: '#',
+        githubUrl: 'https://github.com/mikephaul0917/PUNLA---Coconut-Supplier.git',
         liveUrl: 'https://mikephaul0917.github.io/PUNLA---Coconut-Supplier/index.html',
         icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
         images: ['projects/punla1.png', 'projects/punla2.png', 'projects/punla3.png', 'projects/punla4.png', 'projects/punla5.png', 'projects/punla6.png'], // Add more images here to enable the carousel
+    },
+    {
+        title: 'VERTEX - Law Firm',
+        description: 'Vertex Technologies Ltd. Website – A responsive corporate website built using HTML, CSS, and JavaScript. The site showcases the company’s innovative technology solutions, professional services, mission, and vision through a modern and intuitive interface. It features service highlights, company information, and contact sections, focusing on clean design, responsive performance, and a seamless user experience for businesses seeking reliable digital solutions. 💻',
+        techStack: ['HTML', 'JavaScript', 'CSS'],
+        githubUrl: 'https://github.com/mikephaul0917/VERTEX---Law-Firm.git',
+        liveUrl: 'https://mikephaul0917.github.io/VERTEX---Law-Firm/',
+        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
+        images: ['projects/vertex1.png', 'projects/vertex2.png', 'projects/vertex3.png', 'projects/vertex4.png', 'projects/vertex5.png'], // Add more images here to enable the carousel
     },
     {
         title: 'Hotel Kiosk System',
@@ -72,7 +81,7 @@ const projects = [
         description: 'Kentouka Restaurant Website – A responsive restaurant website built using HTML, CSS, and JavaScript. The site showcases the restaurant’s menu, featured dishes, location, and contact information with a clean and modern design. It focuses on user-friendly navigation and an engaging layout to enhance the online dining experience. 🍜',
         techStack: ['HTML', 'JavaScript', 'CSS'],
         githubUrl: 'https://github.com/mikephaul0917/Kentouka-Restaurant-Website.git',
-        liveUrl: '#',
+        liveUrl: 'https://mikephaul0917.github.io/Kentouka-Restaurant-Website/',
         icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
         images: ['projects/food1.png', 'projects/food2.png', 'projects/food3.png', 'projects/food4.png', 'projects/food5.png'], // Add more images here to enable the carousel
     },
