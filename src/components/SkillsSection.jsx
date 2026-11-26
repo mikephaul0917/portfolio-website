@@ -19,6 +19,14 @@ const skillCategories = [
 
 const certifications = [
     {
+        title: 'Advanced Software Engineering Job Simulation',
+        category: 'Software Engineering',
+        skills: 'Advanced Data Structures, Software	Architecture, Relational Database Design, Data Munging',
+        date: 'July 2026',
+        image: '/CERTIFICATIONS/forage/forage.png',
+        logo: '/CERTIFICATIONS/forage/theforage_logo.jpg',
+    },
+    {
         title: 'Introduction to Cybersecurity',
         category: 'Cybersecurity',
         skills: 'Cyber Best Practices, Cybersecurity, Network Vulnerabilities, Privacy and Data Confidentiality, Threat Detection and Response, Risk Management, Vulnerability Assessment, Security Audit and Compliance',
