@@ -75,6 +75,14 @@ const certifications = [
         logo: 'databricks.png',
     },
     {
+        title: 'Introduction to AI Literacy and Responsible Use',
+        category: 'AI Literacy',
+        skills: 'Artificial intelligence (AI)',
+        date: 'Sept 2026',
+        image: '/CERTIFICATIONS/mapua/mapua.jpg',
+        logo: 'mapua_badge.png',
+    },
+    {
         title: 'Gemini Certified Student',
         category: 'Generative AI',
         skills: 'Google AI',
