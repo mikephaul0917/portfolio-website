@@ -80,7 +80,7 @@ const certifications = [
         skills: 'Artificial intelligence (AI)',
         date: 'Sept 2026',
         image: '/CERTIFICATIONS/mapua/mapua.jpg',
-        logo: 'mapua_badge.png',
+        logo: '/CERTIFICATIONS/mapua/mapua_badge.png',
     },
     {
         title: 'Gemini Certified Student',
