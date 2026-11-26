@@ -121,7 +121,7 @@ export default function CoverFlap() {
                         <div>WORK</div>
                     </span>
                     <span style={{ fontSize: 'clamp(0.4rem, 2.2vw, 0.65rem)', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-                        <div>Class of 2026</div>
+                        <div>Class of 2027</div>
                     </span>
                 </motion.div>
             </div>

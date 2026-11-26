@@ -13,7 +13,7 @@ const skillCategories = [
         title: 'Backend Development',
         icon: <FaServer className="text-xl" />,
         bgIcon: '#3b82f6',
-        skills: ['Node.js', 'Express.js', 'Python', 'MongoDB', 'Rest API', 'MySQL', 'PHP', 'Laravel'],
+        skills: ['Node.js', 'Express.js', 'MongoDB', 'Rest API', 'MySQL', 'PHP', 'Laravel'],
     },
 ];
 

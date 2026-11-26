@@ -268,7 +268,7 @@ export default function FolderLayout() {
 
             {/* Footer */}
             <footer className="text-center text-xs sm:text-sm text-gray-400">
-                Mike Phaul 2026 –{' '}
+                Mike Phaul 2027 –{' '}
                 <a href="https://www.linkedin.com/in/mikephaul" className="text-blue-400 hover:text-blue-300 transition-colors">LinkedIn</a>
                 {' – '}
                 <a href="https://github.com/mikephaul0917" className="text-blue-400 hover:text-blue-300 transition-colors">GitHub</a>

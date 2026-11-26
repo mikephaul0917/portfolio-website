@@ -14,7 +14,7 @@ export default function AboutSection() {
                             Mike Phaul
                         </h3>
                         <div className="h-1 w-16 sm:w-20 bg-teal-500/30 rounded-full mt-1 mb-1 mx-auto sm:mx-0"></div>
-                        <p className="text-gray-500 font-medium text-sm sm:text-base md:text-lg mt-1">Computer Science Student – Seeking Internship</p>
+                        <p className="text-gray-500 font-medium text-sm sm:text-base md:text-lg mt-1">Computer Science Graduate – Open to Full-Time Roles</p>
                     </div>
                     <div
                         className={`group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-2xl overflow-hidden border-4 border-white shadow-xl flex-shrink-0 bg-gray-100 transition-transform hover:rotate-0 duration-300 cursor-pointer ${photoTouched ? 'rotate-0' : 'rotate-3'}`}
@@ -69,19 +69,19 @@ export default function AboutSection() {
                             Hello there and welcome to my portfolio! I built it from scratch as a way to show what I can do :)
                         </p>
                         <p>
-                            I'm a <span className="text-teal-700 font-semibold">Computer Science student</span> passionate about building things for the web. I love creating interfaces that feel intuitive, look great, and actually solve real problems.
+                            I'm a <span className="text-teal-700 font-semibold">Computer Science graduate</span> with a passion for building software that works well and feels good to use. I enjoy <span className="text-teal-700 font-semibold">web and mobile development</span>.
                         </p>
                         <p>
-                            I am currently completing my degree at Sacred Heart College of Lucena City Inc. I'm actively looking for an internship where I can contribute, learn fast, and grow alongside a strong team.
+                            I'm wrapping up my degree at Sacred Heart College of Lucena City Inc. and I'm now looking for a full-time role as a <span className="text-teal-700 font-semibold">web developer, mobile developer, software developer, or software engineer</span> where I can take on real responsibility and ship work that matters.
                         </p>
                         <p>
-                            I'm a self-driven learner — always exploring new tools, keeping up with the latest in tech, and working on side projects to sharpen my skills.
+                            I'm a self-driven learner who keeps up with new tools, builds side projects to sharpen my skills, and picks up new technologies fast. I'm ready to join a strong team, contribute from day one, and keep growing with it.
                         </p>
                     </div>
 
                     <div className="mt-8 sm:mt-14 pt-6 sm:pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
                         <div className="flex items-center gap-2 text-gray-600 italic text-sm sm:text-base">
-                            <span>Ready to dive into my world?</span>
+                            <span>Hiring? Let's build something great together.</span>
                         </div>
                         <a
                             href="/resume_banderada.pdf"
