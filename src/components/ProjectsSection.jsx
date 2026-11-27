@@ -14,6 +14,23 @@ const projects = [
         images: ['projects/ClearEd1.png', 'projects/ClearEd2.png', 'projects/ClearEd3.png', 'projects/ClearEd4.png', 'projects/ClearEd5.png', 'projects/ClearEd6.png', 'projects/ClearEd7.png', 'projects/ClearEd8.png'], // Add more images here to enable the carousel
     },
     {
+        title: 'Way of the Blade - 2D Sword-Duel Fighting Game',
+        description: 'A pixel-art 2D fighting game built in Unity 6 with C#. Features best-of-3 rounds, three unique fighters with special moves, a CPU opponent with three difficulty levels, six stages, and 1P or 2P modes on one keyboard or one Android phone with split touch controls. Built with data-driven fighters (ScriptableObjects), a state machine, the Observer pattern, procedurally generated audio, and 101 automated tests. 🗡️',
+        techStack: ['Unity 6', 'C#', '2D URP', 'Input System', 'Python', 'Android'],
+        githubUrl: 'https://github.com/mikephaul0917/WayOfTheBlade.git', // replace, or use '#'
+        liveUrl: '#', // replace with an itch.io or GitHub Releases link if you upload a build
+        icon: <FaLaptopCode style={{ fontSize: '1.75rem' }} />,
+        images: [
+            'projects/wob1.png', // title screen
+            'projects/wob2.png', // character select
+            'projects/wob3.png', // fight HUD / combo
+            'projects/wob4.png', // special move cut-in
+            'projects/wob5.png', // Northern Lights stage
+            'projects/wob6.png', // victory screen
+            'projects/wob7.png', // two players on one phone
+        ],
+    },
+    {
         title: 'My Portfolio (This website!)',
         description: 'A unique digital experience exploring skeuomorphic design in a modern web context. Features custom physics-based animations for the folder interaction.',
         techStack: ['React', 'Tailwind v4', 'Framer Motion', 'Vite'],
