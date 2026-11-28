@@ -28,14 +28,6 @@ const schoolCertifications = [
         logo: '/CERTIFICATIONS/Non-tech Certifications/logo.png',
     },
     {
-        title: 'Introduction to AI Literacy and Responsible Use',
-        category: 'AI Literacy',
-        skills: 'Artificial intelligence (AI)',
-        date: 'Sept 2026',
-        image: '/CERTIFICATIONS/mapua/mapua.jpg',
-        logo: '/CERTIFICATIONS/mapua/mapua_badge.png',
-    },
-    {
         title: 'Honor Certificate',
         category: 'Academic Excellence',
         skills: 'Academic Excellence',
@@ -127,6 +119,14 @@ const outsideCertifications = [
         date: 'Nov 2025',
         image: '/CERTIFICATIONS/openit_certificate/hackthon.jpg',
         logo: 'Open_iT.png',
+    },
+    {
+        title: 'Introduction to AI Literacy and Responsible Use',
+        category: 'AI Literacy',
+        skills: 'Artificial intelligence (AI)',
+        date: 'Sept 2026',
+        image: '/CERTIFICATIONS/mapua/mapua.jpg',
+        logo: '/CERTIFICATIONS/mapua/mapua_badge.png',
     },
     {
         title: 'Generative AI Fundamentals',
