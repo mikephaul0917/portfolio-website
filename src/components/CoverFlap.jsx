@@ -73,7 +73,7 @@ function Stamp() {
                     <textPath href={`#${topId}`} startOffset="50%">COMPUTER SCIENCE STUDENT</textPath>
                 </text>
                 <text fontFamily={STAMP_FONT} fontWeight="700" fontSize="16" letterSpacing="2.5" textAnchor="middle" stroke="none">
-                    <textPath href={`#${bottomId}`} startOffset="50%">CLASS OF 2026</textPath>
+                    <textPath href={`#${bottomId}`} startOffset="50%">CLASS OF 2027</textPath>
                 </text>
 
                 {/* Separator stars at 9 and 3 o'clock */}
