@@ -16,6 +16,33 @@ const sections = {
 };
 
 /*
+ * Folder proportions (width / height).
+ * 1.7 suits typical laptop screens (16:9 and 16:10), so the folder fills the width
+ * instead of being limited by the screen height. Lower = taller/squarer, higher = wider.
+ * Change this one number to reshape the folder everywhere.
+ */
+const FOLDER_RATIO = 1.7;
+
+/*
+ * Vertical space reserved for what sits outside the folder body:
+ * the tabs / folder tab above it and the footer below it.
+ */
+const RESERVED_VERTICAL = 110; // px
+
+/*
+ * Largest the folder may grow on very big / ultrawide screens.
+ */
+const MAX_FOLDER_WIDTH = 1900; // px
+
+/*
+ * Width = whichever is smallest:
+ *   - 94% of the viewport width        (never touches the screen edges)
+ *   - the width that fits the viewport height at FOLDER_RATIO (never taller than the screen)
+ *   - MAX_FOLDER_WIDTH
+ */
+const folderMaxWidth = `min(94vw, calc((100vh - ${RESERVED_VERTICAL}px) * ${FOLDER_RATIO}), ${MAX_FOLDER_WIDTH}px)`;
+
+/*
  * Spring config for the bouncy feel.
  * stiffness: 300, damping: 30  →  snappy with a slight bounce
  */
@@ -149,13 +176,16 @@ export default function FolderLayout() {
     const paperZ = paperOnTop ? 'z-25' : 'z-10';
 
     return (
-        <div className="w-full max-w-[1100px] mx-auto">
+        <div className="w-full mx-auto" style={{ maxWidth: folderMaxWidth }}>
 
 
-            {/* ═══ FOLDER CONTAINER ═══ */}
+            {/* ═══ FOLDER CONTAINER ═══
+                aspect-ratio is set inline so it wins over any fixed height / vh rules
+                on .folder-container in your stylesheet. */}
             <div
                 ref={containerRef}
                 className="relative -mt-[1px] w-full folder-container"
+                style={{ aspectRatio: `${FOLDER_RATIO} / 1`, height: 'auto', minHeight: 0 }}
             >
 
                 <div
@@ -267,8 +297,8 @@ export default function FolderLayout() {
             </div>
 
             {/* Footer */}
-            <footer className="text-center text-xs sm:text-sm text-gray-400">
-                Mike Phaul 2027 –{' '}
+            <footer className="text-center text-xs sm:text-sm text-gray-400"  style={{ paddingTop: '1rem' }}>
+                Mike Phaul 2026 –{' '}
                 <a href="https://www.linkedin.com/in/mikephaul" className="text-blue-400 hover:text-blue-300 transition-colors">LinkedIn</a>
                 {' – '}
                 <a href="https://github.com/mikephaul0917" className="text-blue-400 hover:text-blue-300 transition-colors">GitHub</a>
