@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { FaCode, FaServer, FaMobileAlt, FaDocker, FaTimes, FaSearchPlus } from 'react-icons/fa';
+import { FaCode, FaServer, FaTimes, FaSearchPlus } from 'react-icons/fa';
 
 const skillCategories = [
     {
@@ -17,11 +17,65 @@ const skillCategories = [
     },
 ];
 
-const certifications = [
+// Certificates earned IN SCHOOL
+const schoolCertifications = [
+    {
+        title: 'Scholarship Certificate',
+        category: 'Academic Excellence',
+        skills: 'Academic Excellence',
+        date: '2026',
+        image: '/CERTIFICATIONS/Non-tech Certifications/partial.jpg',
+        logo: '/CERTIFICATIONS/Non-tech Certifications/logo.png',
+    },
+    {
+        title: 'Introduction to AI Literacy and Responsible Use',
+        category: 'AI Literacy',
+        skills: 'Artificial intelligence (AI)',
+        date: 'Sept 2026',
+        image: '/CERTIFICATIONS/mapua/mapua.jpg',
+        logo: '/CERTIFICATIONS/mapua/mapua_badge.png',
+    },
+    {
+        title: 'Honor Certificate',
+        category: 'Academic Excellence',
+        skills: 'Academic Excellence',
+        date: '2025',
+        image: '/CERTIFICATIONS/Non-tech Certifications/bscs3.jpg',
+        logo: '/CERTIFICATIONS/Non-tech Certifications/logo.png',
+    },
+    {
+        title: 'Honor Certificate',
+        category: 'Academic Excellence',
+        skills: 'Academic Excellence',
+        date: '2025',
+        image: '/CERTIFICATIONS/Non-tech Certifications/bscs2.jpg',
+        logo: '/CERTIFICATIONS/Non-tech Certifications/logo.png',
+    },
+    {
+        title: 'Honor Certificate',
+        category: 'Academic Excellence',
+        skills: 'Academic Excellence',
+        date: '2024',
+        image: '/CERTIFICATIONS/Non-tech Certifications/bscs1.jpg',
+        logo: '/CERTIFICATIONS/Non-tech Certifications/logo.png',
+    },
+    // Add your other school certificates here, for example:
+    // {
+    //     title: 'Your School Certificate Title',
+    //     category: 'Academic',
+    //     skills: 'Skill 1, Skill 2, Skill 3',
+    //     date: 'Mar 2026',
+    //     image: '/CERTIFICATIONS/school/my-cert.png',
+    //     logo: '/CERTIFICATIONS/school/school_logo.png',
+    // },
+];
+
+// Certificates earned OUTSIDE school
+const outsideCertifications = [
     {
         title: 'Advanced Software Engineering Job Simulation',
         category: 'Software Engineering',
-        skills: 'Advanced Data Structures, Software	Architecture, Relational Database Design, Data Munging',
+        skills: 'Advanced Data Structures, Software Architecture, Relational Database Design, Data Munging',
         date: 'July 2026',
         image: '/CERTIFICATIONS/forage/forage.png',
         logo: '/CERTIFICATIONS/forage/theforage_logo.jpg',
@@ -83,14 +137,6 @@ const certifications = [
         logo: 'databricks.png',
     },
     {
-        title: 'Introduction to AI Literacy and Responsible Use',
-        category: 'AI Literacy',
-        skills: 'Artificial intelligence (AI)',
-        date: 'Sept 2026',
-        image: '/CERTIFICATIONS/mapua/mapua.jpg',
-        logo: '/CERTIFICATIONS/mapua/mapua_badge.png',
-    },
-    {
         title: 'Gemini Certified Student',
         category: 'Generative AI',
         skills: 'Google AI',
@@ -106,8 +152,118 @@ const certifications = [
         image: '/CERTIFICATIONS/codecred-certifications/HTML Fundamentals.png',
         logo: 'CodeCred',
     },
-
 ];
+
+// Reusable timeline card: renders one separate list with its own title and vertical line
+function CertTimeline({ title, icon, items, onSelectImage }) {
+    return (
+        <div style={{ position: 'relative', marginBottom: '2.5rem' }}>
+            <div style={{ position: 'absolute', inset: '-4px', background: 'linear-gradient(to right, rgba(59,130,246,0.15), rgba(20,184,166,0.15))', borderRadius: '1rem', filter: 'blur(4px)', opacity: 0.4 }}></div>
+            <div style={{ position: 'relative', borderLeft: '6px solid #3b82f6', background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(8px)', padding: 'clamp(1.25rem, 4vw, 2.5rem)', borderRadius: '0 1rem 1rem 0', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                    <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', background: 'rgba(219,234,254,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <span style={{ fontSize: '1.2rem' }}>{icon}</span>
+                    </div>
+                    <h3 className="font-[family-name:var(--font-sketch)]" style={{ fontSize: '1.25rem', color: '#1f2937' }}>{title}</h3>
+                </div>
+
+                {items.length === 0 ? (
+                    <p style={{ fontSize: '0.875rem', color: '#6b7280', fontStyle: 'italic' }}>No certificates added yet.</p>
+                ) : (
+                    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                        {/* Vertical line */}
+                        <div style={{ position: 'absolute', left: '1.15rem', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, transparent, #3b82f6, transparent)' }}></div>
+
+                        {items.map((cert, index) => (
+                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', background: '#3b82f6', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', fontWeight: 700, flexShrink: 0, boxShadow: '0 2px 8px rgba(59,130,246,0.4)', zIndex: 1, overflow: 'hidden' }}>
+                                    {cert.logo === 'CodeCred' ? (
+                                        <p style={{ fontSize: '0.4rem' }}>CodeCred</p>
+                                    ) : (
+                                        <img src={cert.logo} alt="logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    )}
+                                </div>
+
+                                <div style={{ flex: 1, padding: '1rem 1.25rem', borderRadius: '0.75rem', border: '1px solid #dbeafe', background: 'rgba(239,246,255,0.6)', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
+                                    <div style={{ display: 'flex', gap: '0.75rem', flexDirection: 'row' }}>
+                                        {/* Image container with hover effect */}
+                                        <div
+                                            onClick={() => onSelectImage(cert.image)}
+                                            onMouseEnter={e => {
+                                                const img = e.currentTarget.querySelector('img');
+                                                const overlay = e.currentTarget.querySelector('[data-overlay]');
+                                                if (img) img.style.transform = 'scale(1.1)';
+                                                if (overlay) overlay.style.opacity = 1;
+                                            }}
+                                            onMouseLeave={e => {
+                                                const img = e.currentTarget.querySelector('img');
+                                                const overlay = e.currentTarget.querySelector('[data-overlay]');
+                                                if (img) img.style.transform = 'scale(1)';
+                                                if (overlay) overlay.style.opacity = 0;
+                                            }}
+                                            style={{
+                                                width: 'clamp(50px, 12vw, 80px)',
+                                                height: 'clamp(50px, 12vw, 80px)',
+                                                flexShrink: 0,
+                                                borderRadius: '0.5rem',
+                                                overflow: 'hidden',
+                                                border: '1px solid #dbeafe',
+                                                background: '#f0f6ff',
+                                                cursor: 'pointer',
+                                                position: 'relative',
+                                            }}
+                                        >
+                                            <img
+                                                src={cert.image}
+                                                alt={cert.title}
+                                                onError={e => {
+                                                    const parent = e.target.parentElement;
+                                                    parent.style.display = 'flex';
+                                                    parent.style.alignItems = 'center';
+                                                    parent.style.justifyContent = 'center';
+                                                    parent.innerHTML = '<span style="font-size:0.65rem;color:#93c5fd;text-align:center;padding:4px">No Image</span>';
+                                                }}
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }}
+                                            />
+                                            {/* Hover icon overlay */}
+                                            <div
+                                                data-overlay
+                                                style={{
+                                                    position: 'absolute',
+                                                    inset: 0,
+                                                    background: 'rgba(59, 130, 246, 0.2)',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    opacity: 0,
+                                                    transition: 'opacity 0.2s ease',
+                                                    pointerEvents: 'none',
+                                                }}
+                                            >
+                                                <FaSearchPlus style={{ color: 'white', fontSize: '1.2rem' }} />
+                                            </div>
+                                        </div>
+
+                                        {/* Text content */}
+                                        <div style={{ flex: 1 }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
+                                                <h4 style={{ fontWeight: 700, color: '#1f2937', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>{cert.title}</h4>
+                                                <span style={{ fontSize: 'clamp(0.55rem, 1.5vw, 0.7rem)', fontWeight: 700, color: '#3b82f6', padding: '0.15rem 0.5rem', background: 'white', borderRadius: '9999px', border: '1px solid #dbeafe', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>{cert.category}</span>
+                                            </div>
+                                            <p style={{ fontSize: 'clamp(0.7rem, 1.8vw, 0.875rem)', color: '#6b7280', fontStyle: 'italic', marginBottom: '0.4rem' }}><strong>Skills:</strong> {cert.skills}</p>
+                                            <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', color: '#3b82f6', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{cert.date}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
 
 export default function SkillsSection() {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -153,92 +309,21 @@ export default function SkillsSection() {
                 </div>
             </div>
 
-            {/* Education Timeline */}
-            <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', inset: '-4px', background: 'linear-gradient(to right, rgba(59,130,246,0.15), rgba(20,184,166,0.15))', borderRadius: '1rem', filter: 'blur(4px)', opacity: 0.4 }}></div>
-                <div style={{ position: 'relative', borderLeft: '6px solid #3b82f6', background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(8px)', padding: 'clamp(1.25rem, 4vw, 2.5rem)', borderRadius: '0 1rem 1rem 0', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+            {/* Certificates Outside School */}
+            <CertTimeline
+                title="Professional Certifications"
+                icon="🏆"
+                items={outsideCertifications}
+                onSelectImage={setSelectedImage}
+            />
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-                        <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', background: 'rgba(219,234,254,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                            <span style={{ fontSize: '1.2rem' }}>🎓</span>
-                        </div>
-                        <h3 className="font-[family-name:var(--font-sketch)]" style={{ fontSize: '1.25rem', color: '#1f2937' }}>Education & Journey</h3>
-                    </div>
-
-                    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        {/* Vertical line */}
-                        <div style={{ position: 'absolute', left: '1.15rem', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, transparent, #3b82f6, transparent)' }}></div>
-
-                        {certifications.map((cert, index) => (
-                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', background: '#3b82f6', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', fontWeight: 700, flexShrink: 0, boxShadow: '0 2px 8px rgba(59,130,246,0.4)', zIndex: 1, overflow: 'hidden' }}>
-                                    {cert.logo === 'CodeCred' ? (
-                                        <p style={{ fontSize: '0.4rem' }}>CodeCred</p>
-                                    ) : (
-                                        <img src={cert.logo} alt="logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    )}
-                                </div>
-                                <div style={{ flex: 1, padding: '1rem 1.25rem', borderRadius: '0.75rem', border: '1px solid #dbeafe', background: 'rgba(239,246,255,0.6)', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
-                                    <div style={{ display: 'flex', gap: '0.75rem', flexDirection: 'row' }}>
-                                        {/* Image Container with Hover Effect */}
-                                        <div
-                                            onClick={() => setSelectedImage(cert.image)}
-                                            className="group"
-                                            style={{
-                                                width: 'clamp(50px, 12vw, 80px)',
-                                                height: 'clamp(50px, 12vw, 80px)',
-                                                flexShrink: 0,
-                                                borderRadius: '0.5rem',
-                                                overflow: 'hidden',
-                                                border: '1px solid #dbeafe',
-                                                background: '#f0f6ff',
-                                                cursor: 'pointer',
-                                                position: 'relative'
-                                            }}
-                                        >
-                                            <img
-                                                src={cert.image}
-                                                alt={cert.title}
-                                                onError={e => { e.target.style.display = 'flex'; e.target.parentElement.style.display = 'flex'; e.target.parentElement.style.alignItems = 'center'; e.target.parentElement.style.justifyContent = 'center'; e.target.parentElement.innerHTML = '<span style="font-size:0.65rem;color:#93c5fd;text-align:center;padding:4px">No Image</span>'; }}
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }}
-                                                onMouseEnter={e => e.target.style.transform = 'scale(1.1)'}
-                                                onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-                                            />
-                                            {/* Hover Icon Overlays */}
-                                            <div style={{
-                                                position: 'absolute',
-                                                inset: 0,
-                                                background: 'rgba(59, 130, 246, 0.2)',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                opacity: 0,
-                                                transition: 'opacity 0.2s ease',
-                                                pointerEvents: 'none'
-                                            }}
-                                                onMouseEnter={e => e.target.style.opacity = 1}
-                                                onMouseLeave={e => e.target.style.opacity = 0}
-                                            >
-                                                <FaSearchPlus style={{ color: 'white', fontSize: '1.2rem' }} />
-                                            </div>
-                                        </div>
-                                        {/* Text content */}
-                                        <div style={{ flex: 1 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
-                                                <h4 style={{ fontWeight: 700, color: '#1f2937', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>{cert.title}</h4>
-                                                <span style={{ fontSize: 'clamp(0.55rem, 1.5vw, 0.7rem)', fontWeight: 700, color: '#3b82f6', padding: '0.15rem 0.5rem', background: 'white', borderRadius: '9999px', border: '1px solid #dbeafe', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>{cert.category}</span>
-                                            </div>
-                                            <p style={{ fontSize: 'clamp(0.7rem, 1.8vw, 0.875rem)', color: '#6b7280', fontStyle: 'italic', marginBottom: '0.4rem' }}><strong>Skills:</strong> {cert.skills}</p>
-                                            <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', color: '#3b82f6', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{cert.date}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
-                </div>
-            </div>
+            {/* School Certificates (separate from outside certificates) */}
+            <CertTimeline
+                title="Academic Certificates"
+                icon="🏫"
+                items={schoolCertifications}
+                onSelectImage={setSelectedImage}
+            />
 
             {/* Modal Overlay using Portal */}
             {selectedImage && createPortal(
@@ -254,7 +339,7 @@ export default function SkillsSection() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         padding: '2rem',
-                        cursor: 'zoom-out'
+                        cursor: 'zoom-out',
                     }}
                 >
                     <div
@@ -269,7 +354,7 @@ export default function SkillsSection() {
                             alignItems: 'center',
                             justifyContent: 'center',
                             cursor: 'default',
-                            animation: 'scaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                            animation: 'scaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
                         }}
                     >
                         <button
@@ -291,7 +376,7 @@ export default function SkillsSection() {
                                 cursor: 'pointer',
                                 boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
                                 transition: 'all 0.3s ease',
-                                zIndex: 10000
+                                zIndex: 10000,
                             }}
                             onMouseEnter={e => {
                                 e.currentTarget.style.transform = 'scale(1.1) rotate(90deg)';
@@ -311,7 +396,7 @@ export default function SkillsSection() {
                             borderRadius: '1rem',
                             overflow: 'hidden',
                             boxShadow: '0 25px 70px -10px rgba(0, 0, 0, 0.6)',
-                            border: '1px solid rgba(255,255,255,0.1)'
+                            border: '1px solid rgba(255,255,255,0.1)',
                         }}>
                             <img
                                 src={selectedImage}
@@ -321,7 +406,7 @@ export default function SkillsSection() {
                                     width: '100%',
                                     height: 'auto',
                                     maxHeight: '85vh',
-                                    objectFit: 'contain'
+                                    objectFit: 'contain',
                                 }}
                             />
                         </div>
